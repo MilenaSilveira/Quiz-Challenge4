@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Code Quiz</title>
+</head>
+<body>
+    
+    <header> 
+        <nav>
+            <ul>
+                <li id="score">Highscores</li>
+                <li id="timer">Timer</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+     <section> 
+        <h1>Code Quiz</h1>
+             <p>Test your code knowledge! </p>
+          <div id="quiz" style="display: none;"> 
+        <h2 id="question">Questions: </h2>
+        <ul class="choices">
+           <li class="choice" id="A" onclick="checkAnswer('A')"><button></button></li>
+           <li class="choice" id="B" onclick="checkAnswer('B')"><button></button></li>
+           <li class="choice" id="C" onclick="checkAnswer('C')"><button></button></li>
+           <li class="choice" id="D" onclick="checkAnswer('D')"><button></button></li>
+        </div> 
+          
+        </ul>
+    </section>
+
+        <div>
+            <button id="start">Start Quiz</button>
+        </div>
+    </main>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
