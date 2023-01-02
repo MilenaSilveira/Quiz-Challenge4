@@ -49,7 +49,7 @@ main {
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: space-between;
     border: 2px solid var(--dark);
     padding: 60px;
@@ -75,14 +75,9 @@ button:hover {
     background-color: var(--dark);
 }
 
-div {
-    display: flex;
-    justify-content: space-between;
-}
- 
-/* .hide {
+.hide {
     display: none;
-} */
+}
 .start-button {
     padding: 20px 30px;
    
