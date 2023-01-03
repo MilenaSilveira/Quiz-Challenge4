@@ -4,6 +4,8 @@
 let startButton = document.getElementById("start-btn")
 const quizStart = document.getElementById("quiz")
 const titleElement = document.getElementById("title")
+// const checkAnswer = document.getElementById("answer")
+
 const choiceA = document.getElementById("A")
 const choiceB = document.getElementById("B")
 const choiceC = document.getElementById("C")
@@ -31,56 +33,73 @@ function startTimer() {
 
 //Create Questions
 
+
+
 let titleQuestion = document.getElementById("question")
 
 let questions = [
   {
     question: "What does HTML stand for?",
+
+    
     choiceA: "Hyperactive Markup Language",
     choiceB: "Hover Tool Markup Language",
     choiceC: "HyperText Markup Language",
     choiceD: "Hyperlink Markup Lnguage",
-    correct: "C"
+    correct: "C",
 
+    
   },
 
   {
     question: "What are the boolean values?",
+
+    
     choiceA: "Yes and No",
     choiceB: "True and False",
     choiceC: "Let and Const",
     choiceD: "If and Else",
-    correct: "B"
+    correct: "B",
+    
 
   },
 
   {
     question: "What is an Array?",
+
+    
     choiceA: "A collection of items, or data, stored in contiguous memory locations",
     choiceB: "A text editor App",
     choiceC: "An HTML element",
     choiceD: "None of the above",
-    correct: "A"
+    correct: "A",
+    
 
   },
 
   {
     question: "What are the JavaScript data types?",
+
+    
     choiceA: "Number, String, Boolean, Class and Array",
     choiceB: "Number, String, Boolean, Object and Body",
     choiceC: "Number, String, Boolean, Object and Undefined",
     choiceD: "Number, Class, ID, Oject and String",
-    correct: "C"
+    correct: "C",
+    
 
   },
 
   {
     question: "What does SQL stand for?",
+
+    
     choiceA: "Single Query Language",
     choiceB: "Statement Query Language",
     choiceC: "Stylesheet Query Language",
     choiceD: "Structured Query Language",
-    correct: "D"
+    correct: "D",
+    
 
   }
 ]
@@ -90,37 +109,32 @@ let questions = [
 let lastQuestionIndex = questions.length- 1;
 let runningQuestionIndex = 0;
 
+
 // Render a Question
 
 function renderQuestion(){
   let q = questions[runningQuestionIndex];
 
   titleQuestion.textContent= q.question
-  // titleElement.innerHTML = "<h2>" + q.question + "</h2>";
   choiceA.innerHTML = q.choiceA;
   choiceB.innerHTML = q.choiceB;
   choiceC.innerHTML = q.choiceC;
   choiceD.innerHTML = q.choiceD;
- 
+  
 }
 
-// let title = document.getElementsByClassName("hide")
-
 startButton.addEventListener("click", function startQuiz() {
-  // title.classList.add('hide')
-  startButton.classList.add('hide');
+ startButton.classList.add('hide');
   titleElement.classList.add('hide');
   quizStart.classList.remove('hide');
   renderQuestion();
   startTimer();
 });
 
-
-
 //checkAnswer
 
 function checkAnswer(){
- if (answer == questions [runningQuestionIndex].correct) {
+ if ( answer == q.correct) {
   scoreElement++;
   correctAnswer();
  }else{
@@ -151,13 +165,5 @@ function scoreElement(){
   score.innerHTML = "<li>" + scorePerCent + "</li>";
   
 }
-
-
-// // // questions[0].question
-// // // questions[0].choiceA
-// // // questions[0].choiceB
-// // // questions[0].choiceC
-// // // questions[0].choiceD
-// // // questions[0].correct
 
 
