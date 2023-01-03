@@ -4,6 +4,8 @@
 let startButton = document.getElementById("start-btn")
 const quizStart = document.getElementById("quiz")
 const titleElement = document.getElementById("title")
+const initEl = document.getElementById("init")
+const scoreEl = document.getElementById("score")
 // const checkAnswer = document.getElementById("answer")
 
 const choiceA = document.getElementById("A")
@@ -12,7 +14,7 @@ const choiceC = document.getElementById("C")
 const choiceD = document.getElementById("D")
 
 //Timer
-
+let score = 0;
 let time = 60;
 const counter = document.getElementById(`timer`);
 // setInterval(startTimer, 1000)
@@ -46,7 +48,7 @@ let questions = [
     choiceB: "Hover Tool Markup Language",
     choiceC: "HyperText Markup Language",
     choiceD: "Hyperlink Markup Lnguage",
-    correct: "C",
+    correct: "HyperText Markup Language",
 
     
   },
@@ -59,7 +61,7 @@ let questions = [
     choiceB: "True and False",
     choiceC: "Let and Const",
     choiceD: "If and Else",
-    correct: "B",
+    correct: "True and False",
     
 
   },
@@ -69,10 +71,10 @@ let questions = [
 
     
     choiceA: "A collection of items, or data, stored in contiguous memory locations",
-    choiceB: "A text editor App",
-    choiceC: "An HTML element",
-    choiceD: "None of the above",
-    correct: "A",
+    choiceB: "A collection of variables called into a function",
+    choiceC: "A collection of elements stored in contiguous memory locations",
+    choiceD: "A collection of classes and ID`s stored in a CSS file",
+    correct: "A collection of items, or data, stored in contiguous memory locations",
     
 
   },
@@ -85,7 +87,7 @@ let questions = [
     choiceB: "Number, String, Boolean, Object and Body",
     choiceC: "Number, String, Boolean, Object and Undefined",
     choiceD: "Number, Class, ID, Oject and String",
-    correct: "C",
+    correct: "Number, String, Boolean, Object and Undefined",
     
 
   },
@@ -98,7 +100,7 @@ let questions = [
     choiceB: "Statement Query Language",
     choiceC: "Stylesheet Query Language",
     choiceD: "Structured Query Language",
-    correct: "D",
+    correct: "Structured Query Language",
     
 
   }
@@ -106,21 +108,28 @@ let questions = [
 
 //Create Variables
 
-let lastQuestionIndex = questions.length- 1;
+// let lastQuestionIndex = questions.length- 1;
 let runningQuestionIndex = 0;
-
-
+const btnGrid = document.getElementById("btn-grid")
+let q = questions[runningQuestionIndex];
 // Render a Question
 
 function renderQuestion(){
-  let q = questions[runningQuestionIndex];
-
-  titleQuestion.textContent= q.question
-  choiceA.innerHTML = q.choiceA;
-  choiceB.innerHTML = q.choiceB;
-  choiceC.innerHTML = q.choiceC;
-  choiceD.innerHTML = q.choiceD;
+  if (runningQuestionIndex === questions.length){
+    endQuiz()
+  }
   
+
+  titleQuestion.textContent= questions[runningQuestionIndex].question
+  choiceA.innerHTML = questions[runningQuestionIndex].choiceA;
+  choiceB.innerHTML = questions[runningQuestionIndex].choiceB;
+  choiceC.innerHTML = questions[runningQuestionIndex].choiceC;
+  choiceD.innerHTML = questions[runningQuestionIndex].choiceD;
+  
+  choiceA.setAttribute("value", questions[runningQuestionIndex].choiceA)
+  choiceB.setAttribute("value", questions[runningQuestionIndex].choiceB)
+  choiceC.setAttribute("value", questions[runningQuestionIndex].choiceC)
+  choiceD.setAttribute("value", questions[runningQuestionIndex].choiceD)
 }
 
 startButton.addEventListener("click", function startQuiz() {
@@ -133,37 +142,50 @@ startButton.addEventListener("click", function startQuiz() {
 
 //checkAnswer
 
-function checkAnswer(){
- if ( answer == q.correct) {
-  scoreElement++;
-  correctAnswer();
- }else{
-  wrongAnswer();
-}
-  
- if(runningQuestionIndex < lastQuestionIndex) {
-  runningQuestionIndex++;
+function checkAnswer(answer){
+  console.log(answer, "user answer", q.correct, "correct answer")
+ if ( answer === questions[runningQuestionIndex].correct) {
+  console.log(answer === q.correct)
+  score = score + 5
+  // scoreEl.innerHTML = "score:" + score
+  // scoreElement++;
+  runningQuestionIndex++
+  // correctAnswer();
   renderQuestion();
  }else{
-  clearInterval("timer");
-  scoreElement();
- }
+  runningQuestionIndex++
+  // wrongAnswer();
+  renderQuestion();
+}
+  
+//  if(runningQuestionIndex < lastQuestionIndex) {
+//   runningQuestionIndex++;
+//   renderQuestion();
+//  }else{
+//   clearInterval("timer");
+//   scoreElement();
+//  }
 }
 
-function correctAnswer() {
-  document.getElementById(runningQuestionIndex).style.backgroundColor = "#0f0";
-  
+function endQuiz(){
+  quizStart.classList.add('hide');
+  initEl.classList.remove("hide")
+  clearInterval(timeInterval)
+  scoreEl.innerHTML = "score:" + score
 }
 
-function wrongAnswer() {
-  document.getElementById(runningQuestionIndex).style.backgroundColor = "#f00";
-  
-}
+btnGrid.addEventListener("click", () => {
+  const answer = this.event.target.value
+  // console.log (answer)
+  checkAnswer(answer)
+})
 
-function scoreElement(){
-  let scorePerCent = Math.round(100 * score / questions.length);
-  score.innerHTML = "<li>" + scorePerCent + "</li>";
+0
+
+// function scoreElement(){
+//   let scorePerCent = Math.round(100 * score / questions.length);
+//   scoreEl.innerHTML = "<li>" + scorePerCent + "</li>";
   
-}
+// }
 
 
