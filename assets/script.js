@@ -145,7 +145,16 @@ function checkAnswer(answer) {
     runningQuestionIndex++
     renderQuestion();
   }
+// Display answer wrong or correct
+
+// var correctAnswer = document.getElementById('correct');
+// correctAnswer.innerHTML = 'Correct!';
+
+// var wrongAnswer = document.getElementById('wrong');
+// wrongAnswer.innerHTML = "Wrong!"
+
 }
+
 
 //Quiz ends and displays score
 
@@ -154,6 +163,9 @@ function endQuiz() {
   initEl.classList.remove("hide")
   clearInterval(timeInterval)
   scoreEl.innerHTML = "score:" + score
+  correctAnswer.classList.add('hide')
+  wrongAnswer.classList.add('hide')
+
 }
 
 btnGrid.addEventListener("click", (event) => {

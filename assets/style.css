@@ -100,3 +100,13 @@ button:hover {
 
 
 }
+
+#correct {
+    color: green;
+    text-align: center;
+}
+
+#wrong {
+    color: red;
+    text-align: center;
+}
