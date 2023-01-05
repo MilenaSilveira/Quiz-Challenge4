@@ -83,3 +83,20 @@ button:hover {
    
 
 }
+
+.score-box {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; 
+    justify-content:center;
+    border: 2px solid var(--dark);
+    padding: 60px;
+    margin: auto;
+    box-shadow: 0 0 10px 2px;
+    max-width: 400px;
+
+
+
+}

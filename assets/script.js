@@ -14,7 +14,7 @@ const choiceD = document.getElementById("D")
 
 //Timer
 
-let highscores = []
+
 
 let score = 0;
 let time = 60;
@@ -145,8 +145,6 @@ function checkAnswer(answer) {
     runningQuestionIndex++
     renderQuestion();
   }
-
-
 }
 
 //Quiz ends and displays score
@@ -172,12 +170,17 @@ document.getElementById("submit").addEventListener("click", () => {
     initials,
     score
   }
+  //go  get highscores or make a new array
+  let highscores = JSON.parse(localStorage.getItem("highscores")) || []
+
   // save the users information to local storage
   highscores.push(user)
   localStorage.setItem("highscores", JSON.stringify(highscores))
   // go to highscore page
-  //window.location.href = "highscores.html"
+  window.location.href = "highscores.html"
 })
+
+
 
 
 
