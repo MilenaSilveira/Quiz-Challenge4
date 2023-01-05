@@ -163,8 +163,8 @@ function endQuiz() {
   initEl.classList.remove("hide")
   clearInterval(timeInterval)
   scoreEl.innerHTML = "score:" + score
-  correctAnswer.classList.add('hide')
-  wrongAnswer.classList.add('hide')
+  // correctAnswer.classList.add('hide')
+  // wrongAnswer.classList.add('hide')
 
 }
 
