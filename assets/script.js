@@ -15,8 +15,6 @@ const choiceD = document.getElementById("D")
 
 //Timer
 
-
-
 let score = 0;
 let time = 60;
 const counter = document.getElementById(`timer`);
@@ -101,7 +99,6 @@ let questions = [
 let runningQuestionIndex = 0;
 const btnGrid = document.getElementById("btn-grid")
 
-
 // Render a Question
 
 function renderQuestion() {
@@ -122,8 +119,6 @@ function renderQuestion() {
   }
 }
 
-
-
 startButton.addEventListener("click", function startQuiz() {
   startButton.classList.add('hide');
   titleElement.classList.add('hide');
@@ -133,14 +128,14 @@ startButton.addEventListener("click", function startQuiz() {
 });
 
 //checkAnswer
-
+// Console logs the correct and wrong answers.
 function checkAnswer(answer) {
   let q = questions[runningQuestionIndex];
   console.log(answer, "user answer", q.correct, "correct answer")
   if (answer === q.correct) {
     console.log("Correct")
+    //Time Decreases when answer is wrong.
     score = score + 10
-    // scoreEl.innerHTML = "score:" + score
     runningQuestionIndex++
     renderQuestion();
   } else if (answer !== q.correct) {
@@ -152,7 +147,6 @@ function checkAnswer(answer) {
 
 }
 
-
 //Quiz ends and displays score
 
 function endQuiz() {
@@ -161,7 +155,6 @@ function endQuiz() {
   clearInterval(timeInterval)
   scoreEl.innerHTML = "Score: " + score
   
-
 }
 
 btnGrid.addEventListener("click", (event) => {
@@ -178,12 +171,14 @@ document.getElementById("submit").addEventListener("click", () => {
     initials,
     score
   }
+
   //go  get highscores or make a new array
   let highscores = JSON.parse(localStorage.getItem("highscores")) || []
 
   // save the users information to local storage
   highscores.push(user)
   localStorage.setItem("highscores", JSON.stringify(highscores))
+  
   // go to highscore page
   window.location.href = "highscores.html"
 })

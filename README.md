@@ -3,7 +3,7 @@
 The task on this challenge was to create a Coding Quiz containing HTML, CSS and JavaScript questions. Where the user would select an answer for the question displayed on the screen as a timer runs until end of the Quiz, followed by his score. 
 On the last page the highscores would be displayed and the user would be able to play again. 
 
-Description
+## Description
 
 This Coding Quiz has HTML, CSS and JavaScript questions that will respectively have four possible answers that will show when player presses "Start Quiz".
 After answering a question, the next one will automatically show on the screen until the end of the Quiz.
@@ -11,16 +11,21 @@ After answering all questions the player will see his score on the top left side
 On the center of the page the player will see a card with the option to enter his initials to save his score. After doing so, the next page will display the Highscores.
 
 
-Live Link
+## Live Link
 
 https://milenasilveira.github.io/Quiz-Challenge4/
 
-Screenshots
+## Screenshots
 
-Versioning
+![Start Quiz page.](assets/Images/quiz1.png)
+![Questions page.](assets/Images/quiz2.png)
+![Initals input to register score.](assets/Images/quiz3.png)
+![Scores page.](assets/Images/quiz4.png)
 
-GitHub hostes this project and it's used for version control.
+## Versioning
 
-Credits
+GitHub is hosting this project and it is used for version control.
+
+## Credits
 
 UCF Coding Bootcamp.
