@@ -1,4 +1,5 @@
 
+
 //Select all Elements
 
 let startButton = document.getElementById("start-btn")
@@ -99,7 +100,7 @@ let questions = [
 
 let runningQuestionIndex = 0;
 const btnGrid = document.getElementById("btn-grid")
-let q = questions[runningQuestionIndex];
+
 
 // Render a Question
 
@@ -134,24 +135,20 @@ startButton.addEventListener("click", function startQuiz() {
 //checkAnswer
 
 function checkAnswer(answer) {
+  let q = questions[runningQuestionIndex];
   console.log(answer, "user answer", q.correct, "correct answer")
-  if (answer === questions[runningQuestionIndex].correct) {
-    console.log(answer === q.correct)
+  if (answer === q.correct) {
+    console.log("Correct")
     score = score + 10
     // scoreEl.innerHTML = "score:" + score
     runningQuestionIndex++
     renderQuestion();
-  } else {
+  } else if (answer !== q.correct) {
+    time -= 10
+    console.log("Wrong")
     runningQuestionIndex++
     renderQuestion();
   }
-// Display answer wrong or correct
-
-// var correctAnswer = document.getElementById('correct');
-// correctAnswer.innerHTML = 'Correct!';
-
-// var wrongAnswer = document.getElementById('wrong');
-// wrongAnswer.innerHTML = "Wrong!"
 
 }
 
@@ -162,9 +159,8 @@ function endQuiz() {
   quizStart.classList.add('hide');
   initEl.classList.remove("hide")
   clearInterval(timeInterval)
-  scoreEl.innerHTML = "score:" + score
-  // correctAnswer.classList.add('hide')
-  // wrongAnswer.classList.add('hide')
+  scoreEl.innerHTML = "Score: " + score
+  
 
 }
 
